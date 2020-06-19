@@ -1,0 +1,618 @@
+{
+  "version": "1.0",
+  "contract_account": "B4T5ciTCkWauSqVAcVKy88ofjcSbHrkRgX",
+  "functions": [
+    {
+      "name": "balanceOf",
+      "inputs": [
+        {
+          "name": "balanceArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "user",
+              "type": "account"
+            },
+            {
+              "name": "asset",
+              "type": "account"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "balance",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "deposit",
+      "inputs": [
+        {
+          "name": "depositArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "asset",
+              "type": "account"
+            },
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "to",
+              "type": "account"
+            },
+            {
+              "name": "value",
+              "type": "uint64"
+            }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "withdraw",
+      "inputs": [
+        {
+          "name": "withdrawArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "asset",
+              "type": "account"
+            },
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "to",
+              "type": "account"
+            },
+            {
+              "name": "value",
+              "type": "uint64"
+            }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "delegateWithdraw",
+      "inputs": [
+        {
+          "name": "dWithdrawArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "asset",
+              "type": "account"
+            },
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "to",
+              "type": "account"
+            },
+            {
+              "name": "amount",
+              "type": "uint64"
+            },
+            {
+              "name": "fee",
+              "type": "uint64"
+            },
+            {
+              "name": "salt",
+              "type": "uint64"
+            },
+            {
+              "name": "extra",
+              "type": "string"
+            },
+            {
+              "name": "sig",
+              "type": "struct",
+              "components": [
+                {
+                  "name": "public_keys",
+                  "type": "array",
+                  "components": [
+                    {
+                      "name": "public_key",
+                      "type": "publickey"
+                    }
+                  ]
+                },
+                {
+                  "name": "m",
+                  "type": "uint8"
+                },
+                {
+                  "name": "sig_data",
+                  "type": "array",
+                  "components": [
+                    {
+                      "name": "sig_data",
+                      "type": "bytes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "relay",
+              "type": "account"
+            }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "cancel",
+      "inputs": [
+        {
+          "name": "cancelArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "relays",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "relays",
+          "type": "array",
+          "components": [
+            {
+              "name": "relay",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setRelay",
+      "inputs": [
+        {
+          "name": "setterArgs",
+          "type": "struct",
+          "components": [
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "target",
+              "type": "account"
+            },
+            {
+              "name": "value",
+              "type": "bool"
+            }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "orderState",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "orderState",
+          "type": "struct",
+          "components": [
+            {
+              "name": "user",
+              "type": "account"
+            },
+            {
+              "name": "filled",
+              "type": "uint64"
+            },
+            {
+              "name": "canceled",
+              "type": "bool"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trade",
+      "inputs": [
+        {
+          "name": "tradeArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "maker",
+              "type": "struct",
+              "components": [
+                {
+                  "name": "version",
+                  "type": "uint32"
+                },
+                {
+                  "name": "user",
+                  "type": "account"
+                },
+                {
+                  "name": "pair",
+                  "type": "string"
+                },
+                {
+                  "name": "side",
+                  "type": "string"
+                },
+                {
+                  "name": "price",
+                  "type": "string"
+                },
+                {
+                  "name": "amount",
+                  "type": "string"
+                },
+                {
+                  "name": "channel",
+                  "type": "account"
+                },
+                {
+                  "name": "makerFeeRate",
+                  "type": "uint32"
+                },
+                {
+                  "name": "takerFeeRate",
+                  "type": "uint32"
+                },
+                {
+                  "name": "expire",
+                  "type": "uint32"
+                },
+                {
+                  "name": "salt",
+                  "type": "uint64"
+                },
+                {
+                  "name": "sig",
+                  "type": "struct",
+                  "components": [
+                    {
+                      "name": "public_keys",
+                      "type": "array",
+                      "components": [
+                        {
+                          "name": "public_key",
+                          "type": "publickey"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "m",
+                      "type": "uint8"
+                    },
+                    {
+                      "name": "sig_data",
+                      "type": "array",
+                      "components": [
+                        {
+                          "name": "sig_data",
+                          "type": "bytes"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "taker",
+              "type": "struct",
+              "components": [
+                {
+                  "name": "version",
+                  "type": "uint32"
+                },
+                {
+                  "name": "user",
+                  "type": "account"
+                },
+                {
+                  "name": "pair",
+                  "type": "string"
+                },
+                {
+                  "name": "side",
+                  "type": "string"
+                },
+                {
+                  "name": "price",
+                  "type": "string"
+                },
+                {
+                  "name": "amount",
+                  "type": "string"
+                },
+                {
+                  "name": "channel",
+                  "type": "account"
+                },
+                {
+                  "name": "makerFeeRate",
+                  "type": "uint32"
+                },
+                {
+                  "name": "takerFeeRate",
+                  "type": "uint32"
+                },
+                {
+                  "name": "expire",
+                  "type": "uint32"
+                },
+                {
+                  "name": "salt",
+                  "type": "uint64"
+                },
+                {
+                  "name": "sig",
+                  "type": "struct",
+                  "components": [
+                    {
+                      "name": "public_keys",
+                      "type": "array",
+                      "components": [
+                        {
+                          "name": "public_key",
+                          "type": "publickey"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "m",
+                      "type": "uint8"
+                    },
+                    {
+                      "name": "sig_data",
+                      "type": "array",
+                      "components": [
+                        {
+                          "name": "sig_data",
+                          "type": "bytes"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "relay",
+              "type": "struct",
+              "components": [
+                {
+                  "name": "from",
+                  "type": "account"
+                },
+                {
+                  "name": "trade_amount",
+                  "type": "string"
+                },
+                {
+                  "name": "maker_fee",
+                  "type": "string"
+                },
+                {
+                  "name": "taker_fee",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "cancel",
+      "inputs": [
+        {
+          "name": "orderArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "version",
+              "type": "uint32"
+            },
+            {
+              "name": "user",
+              "type": "account"
+            },
+            {
+              "name": "pair",
+              "type": "string"
+            },
+            {
+              "name": "side",
+              "type": "string"
+            },
+            {
+              "name": "price",
+              "type": "string"
+            },
+            {
+              "name": "amount",
+              "type": "string"
+            },
+            {
+              "name": "channel",
+              "type": "account"
+            },
+            {
+              "name": "makerFeeRate",
+              "type": "uint32"
+            },
+            {
+              "name": "takerFeeRate",
+              "type": "uint32"
+            },
+            {
+              "name": "expire",
+              "type": "uint32"
+            },
+            {
+              "name": "salt",
+              "type": "uint64"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "delegateCancel",
+      "inputs": [
+        {
+          "name": "dcancelArgs",
+          "type": "struct",
+          "components": [
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "user",
+              "type": "account"
+            },
+            {
+              "name": "number",
+              "type": "uint64"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "prepareWithdraw",
+      "inputs": [
+        {
+          "name": "prepareWithdrawArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "asset",
+              "type": "account"
+            },
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "to",
+              "type": "account"
+            },
+            {
+              "name": "value",
+              "type": "uint64"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "commitWithdraw",
+      "inputs": [
+        {
+          "name": "commitWithdrawArg",
+          "type": "struct",
+          "components": [
+            {
+              "name": "from",
+              "type": "account"
+            },
+            {
+              "name": "asset",
+              "type": "account"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "getPrepareWithdrawState",
+      "inputs": [
+        {
+          "name": "from",
+          "type": "account"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "state",
+          "type": "struct",
+          "components": [
+            {
+              "name": "applyTime",
+              "type": "uint32"
+            },
+            {
+              "name": "amount",
+              "type": "uint64"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": []
+}
